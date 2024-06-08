@@ -22,7 +22,7 @@ export default function ProductItem({ product }) {
           <h2 className="card-title font-normal">{product.name}</h2>
         </Link>
         {/* <Rating value={product.rating} caption={`(${product.numReviews})`} /> */}
-        <p className="mb-2">{product.brand}</p>
+        <p className="mb-2">{product.title}</p>
         <div className="card-actions flex items-center justify-between">
           <span className="text-2xl">${product.price}</span>
         </div>
