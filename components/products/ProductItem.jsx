@@ -2,6 +2,7 @@ import { Product } from '@/lib/models/ProductModel';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import Script from 'next/script';
 
 export default function ProductItem({ product }) {
   return (
@@ -24,7 +25,17 @@ export default function ProductItem({ product }) {
         {/* <Rating value={product.rating} caption={`(${product.numReviews})`} /> */}
         <p className="mb-2">{product.title}</p>
         <div className="card-actions flex items-center justify-between">
-          <span className="text-2xl">${product.price}</span>
+          <span className="text-2xl">₹{product.price}</span>
+          <script src="https://cdn.lordicon.com/lordicon.js" async />
+          <lord-icon
+            src="https://cdn.lordicon.com/evyuuwna.json"
+            trigger="hover"
+            colors="primary:#ffffff"
+            style={{
+              width: '45px',
+              height: '45px',
+            }}
+          />
         </div>
       </div>
     </div>
