@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header/header';
+// import Section from '@/components/section/section';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <div className="min-h-screen flex flex-col">
           <Header />
+          {/* <Section /> */}
           {children}
           <footer className="footer footer-center p-4 bg-base-300 text-base-content">
             <p>Copyright © 2024 - All right reserved by Mohit Corp.</p>

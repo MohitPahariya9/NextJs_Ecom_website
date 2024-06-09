@@ -1,3 +1,4 @@
+import React from "react";
 import ProductItem from "@/components/products/ProductItem";
 import data from "@/lib/data";
 export default function Home() {

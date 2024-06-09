@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 // import Rating from './Rating';
-// import AddToCart from './AddToCart';
+import AddToCart from '@/components/products/AddToCart';
 // import productService from './productService';
 import { Product } from '@/lib/models/ProductModel';
 // import convertDocToObj from './convertDocToObj';
@@ -66,14 +66,9 @@ export default async function ProductDetails({ params }) {
               </div>
               {product.countInStock !== 0 && (
                 <div className="card-actions justify-center">
-                  {/* <AddToCart
-                      item={{
-                        ...convertDocToObj(product),
-                        qty: 0,
-                        color: '',
-                        size: '',
-                      }}
-                    /> */}
+                  <AddToCart
+                    item={{ ...product, qty: 0, color: '', size: '' }}
+                  />
                 </div>
               )}
             </div>
