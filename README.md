@@ -14,4 +14,4 @@ pnpm dev
 bun dev
 ```
 
-Open [[http://localhost:3000](https://66671c352c7fe200085c3753--whimsical-wisp-d34ef4.netlify.app/)]([http://localhost:3000](https://66671c352c7fe200085c3753--whimsical-wisp-d34ef4.netlify.app/)) with your browser to see the result.
+Open [https://66671c352c7fe200085c3753--whimsical-wisp-d34ef4.netlify.app/] with your browser to see the result.
