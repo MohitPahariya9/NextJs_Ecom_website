@@ -1,15 +1,27 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-// import Rating from './Rating';
 import AddToCart from '@/components/products/AddToCart';
-// import productService from './productService';
+import productService from '@/lib/services/productService';
 import { Product } from '@/lib/models/ProductModel';
-// import convertDocToObj from './convertDocToObj';
+import { convertDocToObj } from '@/lib/utils';
 import data from '@/lib/data';
+
+export async function generateMetadata({ params }) {
+  const product = await productService.getBySlug(params.slug);
+  if (!product) {
+    return { title: 'Product' };
+  }
+  return {
+    title: product.name,
+    description: product.description,
+  };
+}
+
 export default async function ProductDetails({ params }) {
   const decodedSlug = decodeURIComponent(params.slug);
-  const product = data.products.find((x) => x.slug === decodedSlug);
+  // const product = data.products.find((x) => x.slug === decodedSlug);
+  const product = await productService.getBySlug(decodedSlug);
 
   if (!product) {
     return <div>Product not found</div>;
@@ -56,7 +68,7 @@ export default async function ProductDetails({ params }) {
             <div className="card-body">
               <div className="mb-2 flex justify-between">
                 <div>Price</div>
-                <div>${product.price}</div>
+                <div>₹{product.price}</div>
               </div>
               <div className="mb-2 flex justify-between">
                 <div>Status</div>
@@ -67,7 +79,12 @@ export default async function ProductDetails({ params }) {
               {product.countInStock !== 0 && (
                 <div className="card-actions justify-center">
                   <AddToCart
-                    item={{ ...product, qty: 0, color: '', size: '' }}
+                    item={{
+                      ...convertDocToObj(product),
+                      qty: 0,
+                      color: '',
+                      size: '',
+                    }}
                   />
                 </div>
               )}
