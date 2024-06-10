@@ -10,6 +10,7 @@ export default function CartDetails() {
   const router = useRouter();
   const { items, itemsPrice, decrease, increase } = useCartService();
 
+  // prevent client side and server side render error
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
